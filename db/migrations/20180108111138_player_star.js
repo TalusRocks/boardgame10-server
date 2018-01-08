@@ -7,6 +7,7 @@ exports.up = function(knex, Promise) {
     table.integer('star_id')
     table.foreign('star_id').references('id').inTable('star')
     table.integer('score').notNullable().defaultTo(0)
+    table.boolean('winner').notNullable().defaultTo(false)
   })
 };
 
