@@ -9,13 +9,15 @@ exports.seed = function(knex, Promise) {
         return knex('star').del()
     })
     .then(() => {
+        return knex('player').del()
+    })
+    .then(() => {
         return knex('game').del()
     })
     .then(() => {
         return knex('challenge').del()
     })
     .then(() => {
-        return knex('player').del()
+        return knex('users').del()
     })
-
 }

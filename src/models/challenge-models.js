@@ -15,6 +15,13 @@ class ChallengeModel {
       .where('challenge_id', id)
   }
 
+  static getStarsByChallenge(id){
+    return knex('challenge_game')
+      // .select('challenge_game.*')
+      .innerJoin('star', 'star.game_id', 'challenge_game.game_id')
+      .where('challenge_id', id)
+  }
+
 
 
 }

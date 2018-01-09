@@ -16,6 +16,13 @@ class ChallengeController {
       })
   }
 
+  static getStarsByChallenge(req, res, next){
+    model.getStarsByChallenge(req.params.id)
+      .then(stars => {
+        res.json({stars})
+      })
+  }
+
 
 }
 

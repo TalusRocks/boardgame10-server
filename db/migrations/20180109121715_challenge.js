@@ -2,6 +2,8 @@
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('challenge', table => {
     table.increments()
+    table.integer('user_id')
+    table.foreign('user_id').references('id').inTable('users')
     table.string('name').notNullable().defaultTo('Challenge')
     table.integer('num_games').notNullable().defaultTo(10)
     table.integer('num_plays').notNullable().defaultTo(10)
