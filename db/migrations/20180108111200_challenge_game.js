@@ -6,7 +6,6 @@ exports.up = function(knex, Promise) {
     table.foreign('challenge_id').references('id').inTable('challenge')
     table.integer('game_id')
     table.foreign('game_id').references('id').inTable('game')
-    table.integer('goal').notNullable().defaultTo(10)
     table.boolean('isCompleted').notNullable().defaultTo(false)
     table.timestamps(true, true)
   })

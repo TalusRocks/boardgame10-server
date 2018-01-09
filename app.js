@@ -13,6 +13,9 @@ app.use(cors())
 const gamesRouter = require('./src/routes/game-routes')
 app.use('/games', gamesRouter)
 
+const challengeRouter = require('./src/routes/challenge-routes')
+app.use('/challenge', challengeRouter)
+
 app.use((err, req, res, next) => {
   const status = err.status || 500
   const message = err.message || "Sorry, something went wrong."
