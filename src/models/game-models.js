@@ -22,7 +22,7 @@ class GameModel {
 
   static starsByGameId(id){
     return knex('star')
-      .select('*')
+      .select('star.*', 'star.id as star_id')
       .innerJoin('game', 'game.id', 'game_id')
       .where('game.id', id)
   }
