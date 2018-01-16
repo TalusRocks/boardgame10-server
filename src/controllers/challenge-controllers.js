@@ -33,6 +33,13 @@ class ChallengeController {
       })
   }
 
+  static editStarPlay(req, res, next){
+    model.editStarPlay(req.params.id, req.body)
+      .then(editedstarplay => {
+        res.status(201).json({editedstarplay})
+      })
+  }
+
 
 }
 

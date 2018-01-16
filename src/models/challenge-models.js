@@ -61,6 +61,13 @@ class ChallengeModel {
       .then((starplay) => starplay)
   }
 
+  static editStarPlay(id, body){
+    return knex('star')
+    .returning('*')
+    .update({ comments: body.comments })
+    .where({id})
+  }
+
 }
 
 module.exports = ChallengeModel
