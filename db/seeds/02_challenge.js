@@ -3,7 +3,6 @@ exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
   return knex('challenge').del()
     .then(() => {
-      console.log('at challenge ???');
         return knex('challenge').insert([
           {id: 1, user_id: 1, name: '10 by 10 Challenge', num_games: 10, num_plays: 10, isCompleted: false},
           {id: 2, user_id: 2, name: '5 x 5 Challenge', num_games: 5, num_plays: 5, isCompleted: false},

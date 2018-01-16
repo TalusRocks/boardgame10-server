@@ -5,6 +5,9 @@ class ChallengeController {
   static getOneChallenge(req, res, next){
     model.getOneChallenge(req.params.id)
       .then(challenge => {
+        if(!challenge){
+          return next({message: `Can't find a challenge with id of ${req.params.id}`})
+        }
         res.json({challenge})
       })
   }
@@ -20,6 +23,13 @@ class ChallengeController {
     model.getStarsByChallenge(req.params.id)
       .then(stars => {
         res.json({stars})
+      })
+  }
+
+  static addStarPlay(req, res, next){
+    model.addStarPlay(req.body)
+      .then(starplay => {
+        res.status(201).json({starplay})
       })
   }
 

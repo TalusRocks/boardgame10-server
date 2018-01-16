@@ -51,10 +51,15 @@ class ChallengeModel {
   static getStarsByChallenge(id){
     return knex('challenge_game')
       .innerJoin('star', 'star.game_id', 'challenge_game.game_id')
-      .where('challenge_id', id)
+      .where('challenge_game.challenge_id', id)
   }
 
-
+  static addStarPlay(body){
+    return knex('star')
+      .insert({game_id: body.game_id, challenge_id: body.challenge_id, comments: body.comments})
+      .returning('*')
+      .then((starplay) => starplay)
+  }
 
 }
 
