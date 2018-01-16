@@ -27,7 +27,7 @@ class ChallengeController {
   }
 
   static addStarPlay(req, res, next){
-    model.addStarPlay(req.body)
+    model.addStarPlay(req.params.id, req.body)
       .then(starplay => {
         res.status(201).json({starplay})
       })

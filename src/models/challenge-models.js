@@ -54,9 +54,9 @@ class ChallengeModel {
       .where('challenge_game.challenge_id', id)
   }
 
-  static addStarPlay(body){
+  static addStarPlay(id, body){
     return knex('star')
-      .insert({game_id: body.game_id, challenge_id: body.challenge_id, comments: body.comments})
+      .insert({game_id: body.game_id, challenge_id: id, comments: body.comments})
       .returning('*')
       .then((starplay) => starplay)
   }
